@@ -1,1 +1,1 @@
-export default 'Welcome to regler'
+export default {}

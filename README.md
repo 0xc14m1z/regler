@@ -4,13 +4,13 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-Describe regler here.
+Experimental functional variables type and value checker.
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+[build-badge]: https://travis-ci.org/0xc14m1z/regler.svg?branch=master
+[build]: https://travis-ci.org/0xc14m1z/regler
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[npm-badge]: https://badge.fury.io/js/regler.svg
+[npm]: https://badge.fury.io/js/regler
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+[coveralls-badge]: https://coveralls.io/repos/github/0xc14m1z/regler/badge.svg
+[coveralls]: https://coveralls.io/github/0xc14m1z/regler

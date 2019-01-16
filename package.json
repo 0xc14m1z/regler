@@ -1,7 +1,7 @@
 {
   "name": "regler",
-  "version": "1.0.0",
-  "description": "Describe regler here",
+  "version": "0.0.1",
+  "description": "Experimental functional variables type and value checker.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -22,8 +22,14 @@
   "devDependencies": {
     "nwb": "0.23.x"
   },
-  "author": "",
-  "homepage": "",
+  "author": "0xc14m1z <0xc14m1z@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/0xc14m1z/regler/issues"
+  },
+  "homepage": "https://github.com/0xc14m1z/regler#readme",
   "license": "MIT",
-  "repository": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xc14m1z/regler.git"
+  }
 }
