@@ -28,7 +28,12 @@ const testValidate = () => {
     expect(result).to.throw()
   })
 
-  it('should pass if validation result has the right shape')
+  it('should pass if validation result has the right shape', () => {
+    const schema = {},
+          target = {},
+          result = validate(schema)(target)
+    expect(result).to.deep.equal({ isValid: true, errors: [] })
+  })
 
   it('should pass if schema is valid', () => {
     const schema = {},
