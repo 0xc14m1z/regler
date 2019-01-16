@@ -17,7 +17,7 @@ const testValidate = () => {
 
   it('should throw if the target is undefined', () => {
     const schema = {},
-          target = undefined
+          target = undefined,
           result = () => validate(schema)(target)
     expect(result).to.throw()
   })
