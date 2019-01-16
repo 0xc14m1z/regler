@@ -1,7 +1,7 @@
-import expect from 'expect'
+import { expect } from 'chai'
 
-import Regler from 'src/index'
+import testValidate from './validate.test'
 
 describe('Regler', () => {
-  // tests here
+  describe('validate', testValidate)
 })
