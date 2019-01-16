@@ -17,9 +17,9 @@
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "chai": "^4.2.0",
     "nwb": "0.23.x"
   },
   "author": "0xc14m1z <0xc14m1z@gmail.com>",
