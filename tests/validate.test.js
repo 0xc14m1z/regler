@@ -110,13 +110,17 @@ const testValidate = () => {
 
   })
 
-  it('should pass if schema is valid and has no errors', () => {
-    const validator = () => true
-    const schema = { prop: validator },
-          target = { prop: 42 },
-          result = validate(schema)(target)
-    expect(result.isValid).to.be.true
-    expect(result.errors).to.deep.equal({})
+  describe('result', () => {
+
+    it('should pass if schema is valid and has no errors', () => {
+      const validator = () => true
+      const schema = { prop: validator },
+            target = { prop: 42 },
+            result = validate(schema)(target)
+      expect(result.isValid).to.be.true
+      expect(result.errors).to.deep.equal({})
+    })
+
   })
 
 }
