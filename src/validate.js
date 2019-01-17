@@ -10,21 +10,24 @@ const validate = schema => {
 
     return (
       Object.keys(target).length === 0
-        ? { isValid: false, errors: [] }
+        ? { isValid: false, errors: {} }
         : Object.entries(schema)
                  .reduce(
                    ({ isValid, errors }, [property, validator]) => {
-                     const {
-                       isValid: isPropertyValid,
-                       errors: propertyErrors
-                     } = validator(target[property])
-
-                     return {
-                       isValid: isValid && isPropertyValid,
-                       errors: errors.concat(errors)
-                     }
+                     return validator(target[property])
+                              ? { isValid, errors }
+                              : {
+                                isValid: false,
+                                errors: {
+                                  ...errors,
+                                  [property]: [
+                                    ...(errors[property] || []),
+                                    validator.name
+                                  ]
+                                }
+                              }
                    },
-                   { isValid: true, errors: [] }
+                   { isValid: true, errors: {} }
                  )
     )
   }
