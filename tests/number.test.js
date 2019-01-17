@@ -35,14 +35,14 @@ const testRequired = () => {
     expect(isValid).to.be.true
   })
 
-  it('should pass if the value is given as undefined', () => {
+  it('should fail if the value is given as undefined', () => {
     const isValid = number(undefined)
-    expect(isValid).to.be.true
+    expect(isValid).to.be.fail
   })
 
-  it('should pass if the value is not given', () => {
+  it('should fail if the value is not given', () => {
     const isValid = number()
-    expect(isValid).to.be.true
+    expect(isValid).to.be.fail
   })
 
   it('should fail if the value is NaN', () => {
