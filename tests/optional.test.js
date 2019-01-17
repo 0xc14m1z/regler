@@ -4,7 +4,7 @@ import optional from 'src/optional'
 
 const testOptional = () => {
 
-  it('should pass if the value isgiven', () => {
+  it('should pass if the value is given', () => {
     const isValid = optional(42)
     expect(isValid).to.be.true
   })
