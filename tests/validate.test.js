@@ -32,20 +32,23 @@ const testValidate = () => {
     const schema = {},
           target = {},
           result = validate(schema)(target)
-    expect(result).to.deep.equal({ isValid: true, errors: [] })
+    expect(result).to.be.an('object').that.has.all.keys('isValid', 'errors')
   })
 
-  it('should pass if schema is valid', () => {
+  it('should fail if target is an empty object', () => {
     const schema = {},
           target = {},
+          result = validate(schema)(target)
+    expect(result.isValid).to.be.false
+    expect(result.errors).to.be.an('array').that.is.empty
+  })
+
+  it('should pass if schema is valid and has no errors', () => {
+    const validator = () => ({ isValid: true, errors: [] })
+    const schema = { prop: validator },
+          target = { prop: 1 },
           result = validate(schema)(target)
     expect(result.isValid).to.be.true
-  })
-
-  it('should pass if schema has no errors', () => {
-    const schema = {},
-          target = {},
-          result = validate(schema)(target)
     expect(result.errors).to.be.an('array').that.is.empty
   })
 
