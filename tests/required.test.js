@@ -21,6 +21,11 @@ const tests = () => {
     expect(isValid).to.be.false
   })
 
+  it('should fail if the value given but doesn\'t pass validation', () => {
+    const isValid = required(number)('42')
+    expect(isValid).to.be.fail
+  })
+
   it('should pass the entire validation', () => {
     const schema = { property: required(number) },
           target = { property: 42 },
