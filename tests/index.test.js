@@ -5,6 +5,7 @@ import testRequired from './required.test'
 import testOptional from './optional.test'
 import testNumber from './number.test'
 import testBoolean from './boolean.test'
+import testString from './string.test'
 
 describe('Regler', () => {
   describe('validate', testValidate)
@@ -12,4 +13,5 @@ describe('Regler', () => {
   describe('optional', testOptional)
   describe('number', testNumber)
   describe('boolean', testBoolean)
+  describe('string', testString)
 })
