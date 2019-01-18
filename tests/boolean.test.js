@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import boolean from 'src/boolean'
 import validate from 'src/validate'
 
-const test = () => {
+const tests = () => {
 
   it('should pass if the value is true', () => {
     const isValid = boolean(true)
@@ -76,4 +76,4 @@ const test = () => {
 
 }
 
-export default test
+export default tests

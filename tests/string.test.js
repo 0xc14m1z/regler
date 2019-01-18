@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import string from 'src/string'
 import validate from 'src/validate'
 
-const test = () => {
+const tests = () => {
 
   it('should pass if the value is an empty string', () => {
     const isValid = string('')
@@ -76,4 +76,4 @@ const test = () => {
 
 }
 
-export default test
+export default tests
