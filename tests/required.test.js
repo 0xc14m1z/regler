@@ -4,7 +4,7 @@ import required from 'src/required'
 import number from 'src/number'
 import validate from 'src/validate'
 
-const testRequired = () => {
+const tests = () => {
 
   it('should pass if the value is given', () => {
     const isValid = required(number)(42)
@@ -37,4 +37,4 @@ const testRequired = () => {
 
 }
 
-export default testRequired
+export default tests

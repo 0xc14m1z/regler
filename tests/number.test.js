@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import number from 'src/number'
 import validate from 'src/validate'
 
-const testRequired = () => {
+const tests = () => {
 
   it('should pass if the value is an integer', () => {
     const isValid = number(42)
@@ -91,4 +91,4 @@ const testRequired = () => {
 
 }
 
-export default testRequired
+export default tests

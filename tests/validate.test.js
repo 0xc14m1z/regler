@@ -2,7 +2,7 @@ import { expect } from 'chai'
 
 import validate from 'src/validate'
 
-const testValidate = () => {
+const tests = () => {
 
   describe('schema', () => {
 
@@ -125,4 +125,4 @@ const testValidate = () => {
 
 }
 
-export default testValidate
+export default tests

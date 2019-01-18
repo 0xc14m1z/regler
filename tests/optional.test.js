@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import optional from 'src/optional'
 import number from 'src/number'
 
-const testOptional = () => {
+const tests = () => {
 
   it('should pass if the value is given', () => {
     const isValid = optional(number)(42)
@@ -22,4 +22,4 @@ const testOptional = () => {
 
 }
 
-export default testOptional
+export default tests
