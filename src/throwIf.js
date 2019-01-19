@@ -3,17 +3,12 @@ import fn from './fn'
 
 const throwIf = (condition, Class, message) => {
   if ( condition === true ) {
-    if ( message ) _throw(Class, message)
+    if ( message )        throw new Class(message)
+    if ( string(Class) )  throw new Error(Class)
+    if ( fn(Class) )      throw new Class()
 
-    if ( string(Class) ) _throw(undefined, Class)
-    if ( fn(Class) ) _throw(Class)
-
-    _throw()
+    throw new Error()
   }
-}
-
-const _throw = (Class = Error, message = '') => {
-  throw new Class(message)
 }
 
 export default throwIf
