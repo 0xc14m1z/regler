@@ -1,19 +1,14 @@
 import string from './string'
 import fn from './fn'
 
-const throwIf = (condition, ...options) => {
+const throwIf = (condition, Class, message) => {
   if ( condition === true ) {
-    switch (options.length) {
-      case 0: _throw(Error)
-      case 1: {
-        string(options[0])
-          ? _throw(Error, options[0])
-          : fn(options[0])
-              ? _throw(options[0])
-              : _throw(Error)
-      }
-      case 2: _throw(options[0], options[1])
-    }
+    if ( message ) _throw(Class, message)
+
+    if ( string(Class) ) _throw(undefined, Class)
+    if ( fn(Class) ) _throw(Class)
+
+    _throw()
   }
 }
 
