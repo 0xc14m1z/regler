@@ -23,7 +23,7 @@ const tests = () => {
 
   it('should fail if the value given but doesn\'t pass validation', () => {
     const isValid = required(number)('42')
-    expect(isValid).to.be.fail
+    expect(isValid).to.be.false
   })
 
   it('should pass the entire validation', () => {

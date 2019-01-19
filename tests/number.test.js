@@ -37,12 +37,12 @@ const tests = () => {
 
   it('should fail if the value is given as undefined', () => {
     const isValid = number(undefined)
-    expect(isValid).to.be.fail
+    expect(isValid).to.be.false
   })
 
   it('should fail if the value is not given', () => {
     const isValid = number()
-    expect(isValid).to.be.fail
+    expect(isValid).to.be.false
   })
 
   it('should fail if the value is NaN', () => {

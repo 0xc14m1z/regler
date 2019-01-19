@@ -22,7 +22,7 @@ const tests = () => {
 
   it('should fail if the value given but doesn\'t pass validation', () => {
     const isValid = optional(number)('42')
-    expect(isValid).to.be.fail
+    expect(isValid).to.be.false
   })
 
 }
