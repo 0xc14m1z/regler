@@ -10,6 +10,8 @@ import testArray from './array.test'
 import testFunction from './fn.test'
 import testObject from './object.test'
 
+import testThrowIf from './throwIf.test'
+
 describe('Regler', () => {
   describe('validate', testValidate)
   describe('required', testRequired)
@@ -20,4 +22,6 @@ describe('Regler', () => {
   describe('array', testArray)
   describe('fn', testFunction)
   describe('object', testObject)
+
+  describe('throwIf', testThrowIf)
 })
