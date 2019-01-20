@@ -4,8 +4,9 @@ import fn from './fn'
 const throwIf = (condition, Class, message) => {
   if ( condition === true ) {
     if ( message )        throw new Class(message)
-    if ( string(Class) )  throw new Error(Class)
-    if ( fn(Class) )      throw new Class()
+
+    if ( Class && string(Class) ) throw new Error(Class)
+    if ( Class && fn(Class) )     throw new Class()
 
     throw new Error()
   }

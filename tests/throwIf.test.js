@@ -9,6 +9,11 @@ const tests = () => {
     expect(result).to.throw()
   })
 
+  it('should throw an Error object if the argument is true', () => {
+    const result = () => throwIf(true)
+    expect(result).to.throw(Error)
+  })
+
   it('shouldn\'t throw if the argument is truthy', () => {
     const result = () => throwIf(1)
     expect(result).not.to.throw()
