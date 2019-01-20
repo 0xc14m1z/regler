@@ -14,6 +14,7 @@ import testInstanceOf from './instanceOf.test'
 import testEnum from './enum.test'
 
 import testThrowIf from './throwIf.test'
+import testArgumentsArray from './argumentsArray.test'
 
 describe('Regler', () => {
   describe('validate', testValidate)
@@ -29,5 +30,8 @@ describe('Regler', () => {
   describe('instanceOf', testInstanceOf)
   describe('enum', testEnum)
 
-  describe('throwIf', testThrowIf)
+  describe('helpers', () => {
+    describe('throwIf', testThrowIf)
+    describe('argumentsArray', testArgumentsArray)
+  })
 })
