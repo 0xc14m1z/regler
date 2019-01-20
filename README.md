@@ -38,6 +38,12 @@ const check = t.validate({
   // you can pass an array as well:
   // optionalUnion: t.union([t.string, t.number]),
 
+  mandatoryObject: t.object.required,
+  optionalObjectWithShape: t.object.shape({
+    age: t.number,
+    name: t.string
+  }),
+
 })
 
 const data = {
