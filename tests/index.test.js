@@ -16,6 +16,7 @@ import testUnion from './union.test'
 
 import testThrowIf from './throwIf.test'
 import testArgumentsArray from './argumentsArray.test'
+import testChain from './chain.test'
 
 describe('Regler', () => {
   describe('validate', testValidate)
@@ -35,5 +36,6 @@ describe('Regler', () => {
   describe('helpers', () => {
     describe('throwIf', testThrowIf)
     describe('argumentsArray', testArgumentsArray)
+    describe('chain', testChain)
   })
 })
