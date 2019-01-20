@@ -1,13 +1,9 @@
 import optional from './optional'
-import array from './array'
+import argumentsArray from './argumentsArray'
 
 const _enum = (...values) => {
   const __enum = value =>
-    ( values.length === 1
-      && array(values)
-      && values[0]
-      || values
-    ).includes(value)
+    argumentsArray(...values).includes(value)
 
   return optional(__enum)
 }
