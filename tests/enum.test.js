@@ -20,14 +20,14 @@ const tests = () => {
     expect(isValid).to.be.false
   })
 
-  it('should fail if the value is given as undefined', () => {
+  it('should pass if the value is given as undefined', () => {
     const isValid = _enum(1, 2, 3)(undefined)
-    expect(isValid).to.be.false
+    expect(isValid).to.be.true
   })
 
-  it('should fail if the value is not given', () => {
+  it('should pass if the value is not given', () => {
     const isValid = _enum(1, 2, 3)()
-    expect(isValid).to.be.false
+    expect(isValid).to.be.true
   })
 
   it('should fail if the arguments list is empty', () => {

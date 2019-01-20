@@ -5,4 +5,4 @@ const boolean = value =>
     || value === false
     || value instanceof Boolean
 
-export default boolean
+export default optional(boolean)
