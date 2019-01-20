@@ -1,6 +1,6 @@
 {
   "name": "regler",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Experimental functional variables type checker.",
   "main": "lib/index.js",
   "module": "es/index.js",
