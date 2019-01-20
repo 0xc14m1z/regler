@@ -69,6 +69,21 @@ const tests = () => {
     expect(result.isValid).to.be.false
   })
 
+  describe('chained', () => {
+
+    it('should have #required enhancer chained', () => {
+      const isValid = object.required()
+      expect(isValid).to.be.false
+    })
+
+    it('should have #shape enhancer chained', () => {
+      const target = { property: {} }
+      const isValid = object.shape({ property: object })(target)
+      expect(isValid).to.be.true
+    })
+
+  })
+
 }
 
 export default tests
