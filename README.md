@@ -6,7 +6,73 @@
 [![Codacy][code-quality-badge]][code-quality-url]
 [![npm package][npm-badge]][npm]
 
-Experimental functional variables type and value checker.
+Experimental functional variables type checker.
+
+## installation
+
+```
+npm install --save regler
+```
+
+## usage
+
+```js
+import t from 'regler'
+
+const check = t.validate({
+
+  optionalArray: t.array,
+  optionalBoolean: t.boolean,
+  optionalFunction: t.fn,
+  optionalNumber: t.number,
+  optionalObject: t.object,
+  optionalString: t.string,
+
+  optionalPerson: t.instanceOf(Person),
+
+  optionalEnum: t.enum('admin', 'editor', 'guest'),
+  // you can pass an array as well:
+  // optionalEnum: t.enum(['admin', 'editor', 'guest']),
+
+})
+
+const data = {
+  // ... here the object you need to validate
+}
+
+const result = check(data)
+/*
+  if everything matches:
+  { isValid: true, errors: {} }
+
+  if something doesn't match:
+  {
+    isValid: false,
+    errors: {
+
+      // errors is an object that has invalid properties as keys and an array of
+      // failed validators for that property as values
+      invalidProperty: ['number']
+
+    }
+  }
+
+*/
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [build-badge]: https://img.shields.io/travis/0xc14m1z/regler.svg
 [build-url]: https://travis-ci.org/0xc14m1z/regler
