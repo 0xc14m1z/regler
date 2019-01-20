@@ -19,7 +19,7 @@ const tests = () => {
     expect(result).not.to.throw()
   })
 
-  it('shouldn\' throw if the argument is false', () => {
+  it('shouldn\'t throw if the argument is false', () => {
     const result = () => throwIf(false)
     expect(result).not.to.throw()
   })
