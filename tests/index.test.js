@@ -12,6 +12,7 @@ import testFunction from './fn.test'
 import testObject from './object.test'
 import testInstanceOf from './instanceOf.test'
 import testEnum from './enum.test'
+import testUnion from './union.test'
 
 import testThrowIf from './throwIf.test'
 import testArgumentsArray from './argumentsArray.test'
@@ -29,6 +30,7 @@ describe('Regler', () => {
   describe('object', testObject)
   describe('instanceOf', testInstanceOf)
   describe('enum', testEnum)
+  describe('union', testUnion)
 
   describe('helpers', () => {
     describe('throwIf', testThrowIf)

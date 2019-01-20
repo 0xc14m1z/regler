@@ -34,6 +34,10 @@ const check = t.validate({
   // you can pass an array as well:
   // optionalEnum: t.enum(['admin', 'editor', 'guest']),
 
+  optionalUnion: t.union(t.string, t.number),
+  // you can pass an array as well:
+  // optionalUnion: t.union([t.string, t.number]),
+
 })
 
 const data = {
