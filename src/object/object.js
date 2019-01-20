@@ -1,5 +1,5 @@
-import optional from './optional'
-import array from './array'
+import optional from '../optional'
+import array from '../array'
 
 const object = value =>
   typeof value === 'object' && !array(value)
