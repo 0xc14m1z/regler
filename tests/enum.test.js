@@ -54,6 +54,15 @@ const tests = () => {
     expect(result.isValid).to.be.false
   })
 
+  describe('chained', () => {
+
+    it('should have #required enhancer chained', () => {
+      const isValid = _enum(1, 2, 3).required()
+      expect(isValid).to.be.false
+    })
+
+  })
+
 }
 
 export default tests
