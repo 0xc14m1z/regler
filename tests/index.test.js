@@ -18,6 +18,8 @@ import testThrowIf from './throwIf.test'
 import testArgumentsArray from './argumentsArray.test'
 import testChain from './chain.test'
 
+import testCompose from './helpers.test/compose.test'
+
 describe('Regler', () => {
   describe('validate', testValidate)
 
@@ -37,5 +39,6 @@ describe('Regler', () => {
     describe('throwIf', testThrowIf)
     describe('argumentsArray', testArgumentsArray)
     describe('chain', testChain)
+    describe('compose', testCompose)
   })
 })
