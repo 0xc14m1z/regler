@@ -1,9 +1,9 @@
-import optional from '../optional'
-import array from '../array'
+import optional from 'src/optional'
+import array from 'src/array'
 
-import chain from '../helpers/chain'
-import required from '../required'
-import shape from './shape'
+import chain from 'src/helpers/chain'
+import required from 'src/required'
+import shape from 'src/object/shape'
 
 const object = value =>
   typeof value === 'object' && !array(value)

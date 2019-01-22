@@ -1,4 +1,4 @@
-import argumentsArray from '../argumentsArray'
+import argumentsArray from 'src/helpers/argumentsArray'
 
 const compose = (...fns) => param =>
   argumentsArray(...fns)

@@ -14,11 +14,7 @@ import testInstanceOf from './instanceOf.test'
 import testEnum from './enum.test'
 import testUnion from './union.test'
 
-import testThrowIf from './throwIf.test'
-import testArgumentsArray from './argumentsArray.test'
-import testChain from './chain.test'
-
-import testCompose from './helpers.test/compose.test'
+import testHelpers from './helpers.test'
 
 describe('Regler', () => {
   describe('validate', testValidate)
@@ -35,10 +31,5 @@ describe('Regler', () => {
   describe('enum', testEnum)
   describe('union', testUnion)
 
-  describe('helpers', () => {
-    describe('throwIf', testThrowIf)
-    describe('argumentsArray', testArgumentsArray)
-    describe('chain', testChain)
-    describe('compose', testCompose)
-  })
+  describe('helpers', testHelpers)
 })

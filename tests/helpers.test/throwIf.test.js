@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import throwIf from 'src/throwIf'
+import throwIf from 'src/helpers/throwIf'
 
 const tests = () => {
 

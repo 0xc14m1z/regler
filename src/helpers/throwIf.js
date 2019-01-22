@@ -1,5 +1,5 @@
-import string from './string'
-import fn from './fn'
+import string from 'src/string'
+import fn from 'src/fn'
 
 const throwIf = (condition, Class, message) => {
   if ( condition === true ) {

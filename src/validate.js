@@ -1,4 +1,4 @@
-import throwIf from './throwIf'
+import throwIf from 'src/helpers/throwIf'
 
 const DEFAULT_RESULT = { isValid: false, errors: {} }
 const INITIAL_RESULT = { isValid: true, errors: {} }

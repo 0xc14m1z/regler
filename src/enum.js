@@ -1,8 +1,8 @@
-import optional from './optional'
-import argumentsArray from './argumentsArray'
+import optional from 'src/optional'
+import argumentsArray from 'src/helpers/argumentsArray'
 
-import chain from './helpers/chain'
-import required from './required'
+import chain from 'src/helpers/chain'
+import required from 'src/required'
 
 const _enum = (...values) => {
   const __enum = value =>

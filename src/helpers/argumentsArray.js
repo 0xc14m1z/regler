@@ -1,4 +1,4 @@
-import array from './array'
+import array from 'src/array'
 
 const argumentsArray = (...args) =>
   ( args.length === 1 && array(args[0]) && args[0] || args )

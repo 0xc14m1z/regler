@@ -1,15 +1,16 @@
-import validate from './validate'
+import validate from 'src/validate'
 
-import array from './array'
-import boolean from './boolean'
-import _enum from './enum'
-import fn from './fn'
-import instanceOf from './instanceOf'
-import number from './number'
-import object from './object'
-import optional from './optional'
-import required from './required'
-import string from './string'
+import array from 'src/array'
+import boolean from 'src/boolean'
+import _enum from 'src/enum'
+import fn from 'src/fn'
+import instanceOf from 'src/instanceOf'
+import number from 'src/number'
+import object from 'src/object'
+import optional from 'src/optional'
+import required from 'src/required'
+import string from 'src/string'
+import union from 'src/union'
 
 export default {
   validate,
@@ -23,5 +24,6 @@ export default {
   object,
   optional,
   required,
-  string
+  string,
+  union
 }

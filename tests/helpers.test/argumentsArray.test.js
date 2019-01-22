@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import argumentsArray from 'src/argumentsArray'
+import argumentsArray from 'src/helpers/argumentsArray'
 
 const tests = () => {
 

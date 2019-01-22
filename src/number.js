@@ -1,7 +1,7 @@
-import optional from './optional'
+import optional from 'src/optional'
 
-import chain from './helpers/chain'
-import required from './required'
+import chain from 'src/helpers/chain'
+import required from 'src/required'
 
 const number = value =>
   typeof value === 'number' && !Number.isNaN(value)
