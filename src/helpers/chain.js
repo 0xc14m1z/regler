@@ -3,7 +3,7 @@ const addEnhancer = validator => (chained, [enhancerName, enhancer]) => {
   return chained
 }
 
-const chain = validator => validators =>
+const chain = validators => validator =>
   Object.entries(validators).reduce(addEnhancer(validator), validator.bind())
 
 export default chain

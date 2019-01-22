@@ -8,7 +8,7 @@ const _enum = (...values) => {
   const __enum = value =>
     argumentsArray(...values).includes(value)
 
-  return chain(optional(__enum))({ required })
+  return chain({ required })(optional(__enum))
 }
 
 export default _enum

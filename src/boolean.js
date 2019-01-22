@@ -8,4 +8,4 @@ const boolean = value =>
     || value === false
     || value instanceof Boolean
 
-export default chain(optional(boolean))({ required })
+export default chain({ required })(optional(boolean))

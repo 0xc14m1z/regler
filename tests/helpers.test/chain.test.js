@@ -11,7 +11,7 @@ import validate from 'src/validate'
 const tests = () => {
 
   it('should add the given higher order validator', () => {
-    const validator = chain(object)({ required })
+    const validator = chain({ required })(object)
     const isValid = validator.required()
 
     expect(validator.required).to.be.a('function')
@@ -19,7 +19,7 @@ const tests = () => {
   })
 
   it('should add the given higher order validator arguments list', () => {
-    const validator = chain(object)({ required, shape })
+    const validator = chain({ required, shape })(object)
     const schema = { name: string, age: number }
 
     const isValid = validator.shape(schema)()

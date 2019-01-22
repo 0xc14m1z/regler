@@ -6,4 +6,4 @@ import required from 'src/required'
 const array = value =>
   value instanceof Array
 
-export default chain(optional(array))({ required })
+export default chain({ required })(optional(array))

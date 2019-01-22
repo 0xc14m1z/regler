@@ -6,4 +6,4 @@ import required from 'src/required'
 const fn = value =>
   typeof value === 'function'
 
-export default chain(optional(fn))({ required })
+export default chain({ required })(optional(fn))

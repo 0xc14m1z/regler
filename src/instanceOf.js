@@ -10,7 +10,7 @@ const instanceOf = Class => {
   const _instanceOf = value =>
     value instanceof Class
 
-  return chain(optional(_instanceOf))({ required })
+  return chain({ required })(optional(_instanceOf))
 }
 
 export default instanceOf

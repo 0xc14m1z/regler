@@ -10,7 +10,7 @@ const union = (...validators) => {
       .map(validator => validator(value))
       .some(validation => validation === true)
 
-  return chain(optional(_union))({ required })
+  return chain({ required })(optional(_union))
 }
 
 export default union

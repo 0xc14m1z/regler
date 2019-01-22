@@ -7,4 +7,4 @@ const number = value =>
   typeof value === 'number' && !Number.isNaN(value)
     || value instanceof Number
 
-export default chain(optional(number))({ required })
+export default chain({ required })(optional(number))

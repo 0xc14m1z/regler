@@ -8,4 +8,4 @@ import shape from 'src/object/shape'
 const object = value =>
   typeof value === 'object' && !array(value)
 
-export default chain(optional(object))({ required, shape })
+export default chain({ required, shape })(optional(object))

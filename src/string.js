@@ -6,4 +6,4 @@ import required from 'src/required'
 const string = value =>
   typeof value === 'string' || value instanceof String
 
-export default chain(optional(string))({ required })
+export default chain({ required })(optional(string))

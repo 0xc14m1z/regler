@@ -13,7 +13,7 @@ const shape = previousValidator => schema => {
                 .map(([property, validator]) => validator(value[property]))
                 .every(validation => validation === true)
 
-  return chain(optional(_shape))({ required })
+  return chain({ required })(optional(_shape))
 }
 
 export default shape
