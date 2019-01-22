@@ -49,12 +49,19 @@ const check = t.validate({
 
   mandatoryEnum: t.enum('admin', 'editor', 'guest').required,
 
+  optionalArrayOfNumbers: t.array.of(t.number),
+
   optionalObjectWithShape: t.object.shape({
     age: t.number,
     name: t.string
   }),
 
-  mandatoryObjectWithShape: t.object.shape({ age: t.number, name: t.string }).required
+  mandatoryArrayOfStrings: t.array.of(t.string).required,
+
+  mandatoryObjectWithShape: t.object.shape({
+    age: t.number,
+    name: t.string
+  }).required
 
 })
 

@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 
 import array from 'src/array'
+import number from 'src/number'
 import validate from 'src/validate'
 
 const tests = () => {
@@ -78,6 +79,11 @@ const tests = () => {
 
     it('should have #required enhancer chained', () => {
       const isValid = array.required()
+      expect(isValid).to.be.false
+    })
+
+    it('should have #of enhancer chained', () => {
+      const isValid = array.of(number)(['a', 'b', 'c'])
       expect(isValid).to.be.false
     })
 
