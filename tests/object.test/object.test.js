@@ -2,6 +2,7 @@ import { expect } from 'chai'
 
 import object from 'src/object'
 import validate from 'src/validate'
+import number from 'src/number'
 
 const tests = () => {
 
@@ -80,6 +81,16 @@ const tests = () => {
       const target = { property: {} }
       const isValid = object.shape({ property: object })(target)
       expect(isValid).to.be.true
+    })
+
+    it('should have #of enhancer chained', () => {
+      const value = {
+        firstProperty: 'a',
+        secondProperty: 'b',
+        thirdProperty: 'c'
+      }
+      const isValid = object.of(number)(value)
+      expect(isValid).to.be.false
     })
 
   })

@@ -6,7 +6,7 @@
 [![Codacy][code-quality-badge]][code-quality-url]
 [![npm package][npm-badge]][npm]
 
-Experimental functional variables type checker.
+Functional variables type checker.
 
 ## installation
 
@@ -50,6 +50,7 @@ const check = t.validate({
   mandatoryEnum: t.enum('admin', 'editor', 'guest').required,
 
   optionalArrayOfNumbers: t.array.of(t.number),
+  optionalObjectWithStringValues: t.object.of(t.string),
 
   optionalObjectWithShape: t.object.shape({
     age: t.number,
@@ -57,6 +58,7 @@ const check = t.validate({
   }),
 
   mandatoryArrayOfStrings: t.array.of(t.string).required,
+  mandatoryObjectWithNumberValues: t.object.of(t.number).required,
 
   mandatoryObjectWithShape: t.object.shape({
     age: t.number,
