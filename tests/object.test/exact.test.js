@@ -2,6 +2,7 @@ import { expect } from 'chai'
 
 import object from 'src/object'
 import shape from 'src/object/shape'
+import exact from 'src/object/shape/exact'
 import string from 'src/string'
 import number from 'src/number'
 import validate from 'src/validate'
@@ -13,68 +14,58 @@ const tests = () => {
     age: number
   }
 
-  it('should throw if the schema is undefined', () => {
-    const result = () => shape(object)(undefined)
-    expect(result).to.throw()
-  })
-
-  it('should throw if the schema is not given at all', () => {
-    const result = () => shape(object)()
-    expect(result).to.throw()
-  })
-
-  it('should pass if the object has the given schema shape', () => {
+  it('should pass if the object has the exact given schema shape', () => {
     const value = { name: 'Luke Skywalker', age: 42 }
-    const isValid = shape(object)(schema)(value)
+    const isValid = object.shape(schema).exact(value)
     expect(isValid).to.be.true
   })
 
-  it('should fail if the object hasn\'t the given schema shape', () => {
+  it('should fail if the object hasn\'t the exact given schema shape', () => {
     const value = { name: 42, age: 'Luke Skywalker' }
-    const isValid = shape(object)(schema)(value)
+    const isValid = object.shape(schema).exact(value)
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is NaN', () => {
-    const isValid = shape(object)(schema)(NaN)
+    const isValid = object.shape(schema).exact(NaN)
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is a string', () => {
-    const isValid = shape(object)(schema)("42")
+    const isValid = object.shape(schema).exact("42")
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is a boolean', () => {
-    const isValid = shape(object)(schema)(true)
+    const isValid = object.shape(schema).exact(true)
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is a function', () => {
-    const isValid = shape(object)(schema)(() => {})
+    const isValid = object.shape(schema).exact(() => {})
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is a number', () => {
-    const isValid = shape(object)(schema)(42)
+    const isValid = object.shape(schema).exact(42)
     expect(isValid).to.be.false
   })
 
   it('should fail if the value is an array', () => {
-    const isValid = shape(object)(schema)([])
+    const isValid = object.shape(schema).exact([])
     expect(isValid).to.be.false
   })
 
   it('should pass the entire validation', () => {
-    const outerSchema = { property: shape(object)(schema) },
+    const outerSchema = { property: object.shape(schema).exact },
           target = { property: { name: 'Luke Skywalker', age: 42 } },
           result = validate(outerSchema)(target)
     expect(result.isValid).to.be.true
   })
 
   it('should fail the entire validation', () => {
-    const outerSchema = { property: shape(object)(schema) },
-          target = { property: '42' },
+    const outerSchema = { property: object.shape(schema).exact },
+          target = { property: { name: 'Luke Skywalker' } },
           result = validate(outerSchema)(target)
     expect(result.isValid).to.be.false
   })
@@ -82,13 +73,7 @@ const tests = () => {
   describe('chained', () => {
 
     it('should have #required enhancer chained', () => {
-      const isValid = shape(object)(schema).required()
-      expect(isValid).to.be.false
-    })
-
-    it('should have #exact enhancer chained', () => {
-      const value = { age: 42 }
-      const isValid = shape(object)(schema).exact(value)
+      const isValid = object.shape(schema).exact.required()
       expect(isValid).to.be.false
     })
 
