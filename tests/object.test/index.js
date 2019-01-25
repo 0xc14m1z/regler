@@ -1,11 +1,11 @@
 import testObject from './object.test'
 import testShape from './shape.test'
-import testExact from './exact.test'
+import testOf from './of.test'
 
 const tests = () => {
   describe('object', testObject)
   describe('shape', testShape)
-  describe('exact', testExact)
+  describe('of', testOf)
 }
 
 export default tests

@@ -56,6 +56,10 @@ const check = t.validate({
     age: t.number,
     name: t.string
   }),
+  optionalObjectWith_EXACT_Shape: t.object.shape({
+    age: t.number,
+    name: t.string
+  }).exact,
 
   mandatoryArrayOfStrings: t.array.of(t.string).required,
   mandatoryObjectWithNumberValues: t.object.of(t.number).required,
@@ -64,6 +68,10 @@ const check = t.validate({
     age: t.number,
     name: t.string
   }).required
+  mandatoryObjectWith_EXACT_Shape: t.object.shape({
+    age: t.number,
+    name: t.string
+  }).exact.required,
 
 })
 
