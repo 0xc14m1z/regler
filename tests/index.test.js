@@ -30,6 +30,6 @@ describe('Regler', () => {
   describe('instanceOf', testInstanceOf)
   describe('enum', testEnum)
   describe('union', testUnion)
-
+  
   describe('helpers', testHelpers)
 })
