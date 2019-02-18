@@ -1,5 +1,7 @@
 import { expect } from 'chai'
 
-describe('Regler', () => {
+import validatorTests from './validator.test'
 
+describe('Regler', () => {
+  describe('Validator', validatorTests)
 })
