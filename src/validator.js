@@ -101,7 +101,9 @@ Validator.prototype.use = function use(name, validator) {
   }
 }
 
-Validator.prototype.test = function test(value) {}
+Validator.prototype.test = function test(value) {
+  return this.parent.test(value)
+}
 Validator.prototype.report = function report(value) {}
 
 export default Validator
