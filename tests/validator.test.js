@@ -38,8 +38,16 @@ export default function validator() {
       expect(testCorrect).not.to.throw()
     })
 
-    it('should return an object')
-    it('should return an object with proper properties')
+    it('should return an object with proper properties', () => {
+      const parent = { test: () => {}, report: () => {} },
+            validator = new Validator('name', parent, 'feedback')
+
+      expect(validator).to.be.an('object')
+      expect(validator).to.have.property('name', 'name')
+      expect(validator.parent).to.deep.equal(parent)
+      expect(validator).to.have.property('feedback', 'feedback')
+    })
+
     it('should have default chained validators')
   })
 
