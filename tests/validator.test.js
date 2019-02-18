@@ -237,13 +237,30 @@ export default function validator() {
         const validator = new Validator('root')
         expect(validator.test()).to.be.false
       })
-      
+
     })
 
     describe('report', () => {
-      it('should take a parameter')
-      it('should return false if value is provided')
-      it('should return \'required\' if value isn\'t provided')
+
+      it('should be a function', () => {
+        const validator = new Validator('root')
+        expect(validator.report).to.be.a('function')
+      })
+
+      it('should take one parameter', () => {
+        const validator = new Validator('root')
+        expect(validator.report.length).to.equal(1)
+      })
+
+      it('should return false if value is provided', () => {
+        const validator = new Validator('root')
+        expect(validator.report(123)).to.be.false
+      })
+
+      it('should return \'required\' if value isn\'t provided', () => {
+        const validator = new Validator('root')
+        expect(validator.report()).to.equal('required')
+      })
     })
 
   })
