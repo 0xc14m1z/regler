@@ -261,6 +261,13 @@ export default function validator() {
         const validator = new Validator('root')
         expect(validator.report()).to.equal('required')
       })
+
+      it('should return inner feedback if parent returns false', () => {
+        const parent = { test: () => false, report: () => false }
+        const validator = new Validator('root', parent, 'custom feedback')
+        expect(validator.report()).to.equal('custom feedback')
+      })
+
     })
 
   })
