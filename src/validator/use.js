@@ -15,21 +15,28 @@ function use(name, validator) {
   )
 
   this[name] = function createNestedValidator() {
-    let feedback;
-    if (arguments.length > validator.length
-        && typeof arguments[validator.length] === 'string')
-      feedback = arguments[validator.length];
+    const feedback = guessFeedback(arguments, validator),
+          context = new Validator(name, this, feedback),
+          validatorInstance = validator.apply(context, arguments)
 
-    const context = new Validator(name, this, feedback);
-    const result = validator.apply(context, arguments)
+    validator.chained.forEach(chainNestedValidatorTo(validatorInstance))
 
-    validator.chained.forEach(
-      function applyChainedValidator([name, nestedValidator]) {
-        result.use(name, nestedValidator)
-      }
-    )
+    return validatorInstance
+  }
+}
 
-    return result
+function guessFeedback(args, validatorFn) {
+  if ( args.length < validatorFn.length ) return undefined
+
+  const lastArgument = args[validatorFn.length]
+  if ( typeof lastArgument !== 'string' ) return undefined
+
+  return lastArgument
+}
+
+function chainNestedValidatorTo(validator) {
+  return function chainNestedValidator([name, nestedValidator]) {
+    validator.use(name, nestedValidator)
   }
 }
 
