@@ -58,15 +58,26 @@ export default function testUse() {
 
     it('should automatically set a feedback message if provided', () => {
       const validator = new Validator('root'),
-            nested = Validator.make(function () { return this })
+            nested = Validator.make(function () { return this }),
+            parametricNested = Validator.make(function (param) { return this })
       let result
 
-      validator.use('name', nested)
+      validator.use('parameterless', nested)
+      validator.use('parametric', parametricNested)
 
-      result = validator.name()
-      expect(result.feedback).to.equal('name')
+      result = validator.parameterless()
+      expect(result.feedback).to.equal('parameterless')
 
-      result = validator.name('custom message')
+      result = validator.parameterless('custom message')
+      expect(result.feedback).to.equal('custom message')
+
+      result = validator.parametric()
+      expect(result.feedback).to.equal('parametric')
+
+      result = validator.parametric(123)
+      expect(result.feedback).to.equal('parametric')
+
+      result = validator.parametric(123, 'custom message')
       expect(result.feedback).to.equal('custom message')
     })
 
