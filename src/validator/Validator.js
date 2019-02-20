@@ -4,6 +4,9 @@ import test from './test'
 import report from './report'
 import make from './make'
 
+import required from 'src/required'
+import optional from '../optional'
+
 import * as Errors from './errors'
 
 const ROOT_VALIDATOR = {
@@ -32,6 +35,11 @@ function Validator(name, parent = ROOT_VALIDATOR, feedback = name) {
   this.name = name;
   this.parent = parent;
   this.feedback = feedback;
+
+  // using `use` here in the constructor makes these two
+  // validators chained by default to each constructed validator
+  this.use('required', required)
+  this.use('optional', optional)
 }
 
 Validator.prototype.use = use

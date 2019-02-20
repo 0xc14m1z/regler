@@ -43,6 +43,17 @@ export default function testNew() {
     expect(validator).to.have.property('feedback', 'feedback')
   })
 
-  it('should have default chained validators')
+  it('should have default chained validators', () => {
+    const validator = new Validator('name'),
+          nested = Validator.make(function () { return this })
+
+    validator.use('nested', nested)
+
+    expect(validator).to.have.property('required')
+    expect(validator).to.have.property('optional')
+
+    expect(validator.nested()).to.have.property('required')
+    expect(validator.nested()).to.have.property('optional')
+  })
 
 }
