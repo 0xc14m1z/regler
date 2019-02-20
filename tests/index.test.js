@@ -7,6 +7,7 @@ import testOptional from './optional.test'
 
 import testBoolean from './boolean.test'
 import testNumber from './number.test'
+import testString from './string.test'
 
 import testHelpers from './helpers.test'
 
@@ -21,6 +22,7 @@ describe('Regler', () => {
 
     describe('boolean', testBoolean)
     describe('number', testNumber)
+    describe('string', testString)
 
   })
 

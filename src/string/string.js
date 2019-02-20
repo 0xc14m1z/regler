@@ -1,12 +1,12 @@
 import Validator from 'src/validator'
 
-function number() {
+function string() {
   this.test = function test(value) {
     return (
       this.parent.test(value)
       && (
-        typeof value === 'number' && !Number.isNaN(value)
-        || value instanceof Number
+        typeof value === 'string'
+        || value instanceof String
       )
     )
   }
@@ -14,4 +14,4 @@ function number() {
   return this
 }
 
-export default Validator.make(number)
+export default Validator.make(string)
