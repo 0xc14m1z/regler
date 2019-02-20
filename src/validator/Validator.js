@@ -8,7 +8,7 @@ import * as Errors from './errors'
 
 const ROOT_VALIDATOR = {
   test: value => value !== undefined,
-  report: () => "required"
+  report: () => 'required'
 }
 
 function Validator(name, parent = ROOT_VALIDATOR, feedback = name) {
