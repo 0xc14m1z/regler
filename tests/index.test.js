@@ -5,6 +5,8 @@ import testValidator from './validator.test'
 import testRequired from './required.test'
 import testOptional from './optional.test'
 
+import testBoolean from './boolean.test'
+
 import testHelpers from './helpers.test'
 
 describe('Regler', () => {
@@ -15,6 +17,8 @@ describe('Regler', () => {
 
     describe('required', testRequired)
     describe('optional', testOptional)
+
+    describe('boolean', testBoolean)
 
   })
 
