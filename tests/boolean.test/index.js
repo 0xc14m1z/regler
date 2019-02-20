@@ -5,13 +5,6 @@ import boolean from 'src/boolean'
 
 export default function testBoolean() {
 
-  // this neutral validator always passes
-  // and never reports anything
-  // const NEUTRAL_PARENT = {
-  //   test: () => true,
-  //   report: () => false
-  // }
-
   const validator = new Validator('test')
   validator.use('boolean', boolean)
 
@@ -28,15 +21,15 @@ export default function testBoolean() {
     expect(boolean).to.have.property('chain')
   })
 
-  it('should pass if provided value is true', () => {
+  it('should pass if value is true', () => {
     expect(validator.boolean().test(true)).to.be.true
   })
 
-  it('should pass if provided value is false', () => {
+  it('should pass if value is false', () => {
     expect(validator.boolean().test(false)).to.be.true
   })
 
-  it('should pass if provided value is a Boolean', () => {
+  it('should pass if value is a Boolean', () => {
     expect(validator.boolean().test(new Boolean(true))).to.be.true
   })
 
@@ -45,6 +38,7 @@ export default function testBoolean() {
   })
 
   it('should fail if value isn\'t a boolean', () => {
+    expect(validator.boolean().test(NaN)).to.be.false
     expect(validator.boolean().test(42)).to.be.false
     expect(validator.boolean().test('42')).to.be.false
     expect(validator.boolean().test({})).to.be.false
@@ -53,15 +47,15 @@ export default function testBoolean() {
     expect(validator.boolean().test(null)).to.be.false
   })
 
-  it('should have nothing to report if value is true', () => {
+  it('shouldn\'t report if value is true', () => {
     expect(validator.boolean().report(true)).to.be.false
   })
 
-  it('should have nothing to report if value is false', () => {
+  it('shouldn\'t report if value is false', () => {
     expect(validator.boolean().report(false)).to.be.false
   })
 
-  it('should have nothing to report if value is a Boolean', () => {
+  it('shouldn\'t report if value is a Boolean', () => {
     expect(validator.boolean().report(new Boolean(true))).to.be.false
   })
 
