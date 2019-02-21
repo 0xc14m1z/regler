@@ -10,6 +10,7 @@ import testNumber from './number.test'
 import testString from './string.test'
 import testFunction from './function.test'
 import testArray from './array.test'
+import testObject from './object.test'
 
 import testHelpers from './helpers.test'
 
@@ -27,6 +28,7 @@ describe('Regler', () => {
     describe('string', testString)
     describe('function', testFunction)
     describe('array', testArray)
+    describe('object', testObject)
 
   })
 
