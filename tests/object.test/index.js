@@ -3,6 +3,8 @@ import { expect } from 'chai'
 import Validator from 'src/validator'
 import object from 'src/object'
 
+import testShape from './shape.test'
+
 export default function testObject() {
 
   const validator = new Validator('test')
@@ -74,5 +76,7 @@ export default function testObject() {
   it('should fallback to parent report if value isn\'t provided', () => {
     expect(validator.object().report()).to.equal('required')
   })
+
+  describe('shape', testShape)
 
 }

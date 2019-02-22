@@ -2,7 +2,7 @@ import Validator from 'src/validator'
 
 import throwIf from '../helpers/throwIf'
 
-export const INVALID_COMPARE_CLASS =
+const INVALID_COMPARE_CLASS =
   'The comparison class must be provided'
 
 function instanceOf(compareClass) {
