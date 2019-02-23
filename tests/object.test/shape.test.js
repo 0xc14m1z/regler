@@ -4,6 +4,7 @@ import Validator from 'src/validator'
 import object from 'src/object'
 import string from 'src/string'
 import number from 'src/number'
+import array from 'src/array'
 import shape from 'src/object/shape'
 
 export default function testShape() {
@@ -12,22 +13,26 @@ export default function testShape() {
   validator.use('object', object)
   validator.use('string', string)
   validator.use('number', number)
+  validator.use('array', array)
 
   object.chain('shape', shape)
 
   const schema = {
     name: validator.string(),
-    age: validator.number()
+    age: validator.number(),
+    friends: validator.array(),
+    enemies: validator.array()
   }
 
   const correct = {
     name: 'Luke Skywalker',
-    age: 42
+    age: 42,
   }
 
   const incorrect = {
     name: 42,
-    age: 'Luke Skywalker'
+    age: 'Luke Skywalker',
+    friends: []
   }
 
   it('should be a function', () => {
