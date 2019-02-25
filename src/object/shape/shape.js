@@ -21,12 +21,21 @@ function shape(schema) {
     TypeError, INVALID_SCHEMA
   )
 
-  this.test = function test(value) {
+  this.test = testWith(schema)
+  this.report = reportWith(schema)
+
+  return this
+}
+
+function testWith(schema) {
+  return function test(value) {
     if ( !this.parent.test(value) ) return false
     return Object.entries(schema).reduce(testPropertyWith(value), true)
   }
+}
 
-  this.report = function report(value) {
+function reportWith(schema) {
+  return function report(value) {
     if ( this.test(value) ) return false
 
     const parentReport = this.parent.report(value)
@@ -34,8 +43,6 @@ function shape(schema) {
 
     return Object.entries(schema).reduce(reportPropertyWith(value), {})
   }
-
-  return this
 }
 
 function testPropertyWith(value) {
