@@ -3,6 +3,8 @@ import { expect } from 'chai'
 import Validator from 'src/validator'
 import array from 'src/array'
 
+import testOf from './of.test'
+
 export default function testArray() {
 
   const validator = new Validator('test')
@@ -74,5 +76,7 @@ export default function testArray() {
   it('should fallback to parent report if value isn\'t provided', () => {
     expect(validator.array().report()).to.equal('required')
   })
+
+  describe('of', testOf)
 
 }
