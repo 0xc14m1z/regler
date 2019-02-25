@@ -12,6 +12,7 @@ import testFunction from './function.test'
 import testArray from './array.test'
 import testObject from './object.test'
 import testInstanceOf from './instanceOf.test'
+import testOneOf from './oneOf.test'
 
 import testHelpers from './helpers.test'
 
@@ -31,6 +32,7 @@ describe('Regler', () => {
     describe('array', testArray)
     describe('object', testObject)
     describe('instanceOf', testInstanceOf)
+    describe('oneOf', testOneOf)
 
   })
 
