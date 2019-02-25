@@ -23,16 +23,7 @@ function shape(schema) {
 
   this.test = function test(value) {
     if ( !this.parent.test(value) ) return false
-
-    return  Object
-              .entries(schema)
-              .reduce(
-                function testProperty(result, [property, validator]) {
-                  if ( !value.hasOwnProperty(property) ) return result
-                  return result && validator.test(value[property])
-                },
-                true
-              )
+    return Object.entries(schema).reduce(testPropertyWith(value), true)
   }
 
   this.report = function report(value) {
@@ -41,24 +32,30 @@ function shape(schema) {
     const parentReport = this.parent.report(value)
     if ( parentReport ) return parentReport
 
-    return  Object
-              .entries(schema)
-              .reduce(
-                function reportProperty(errors, [property, validator]) {
-                  if ( !value.hasOwnProperty(property) ) return errors
-
-                  const propertyValue = value[property]
-
-                  if ( validator.test(propertyValue) ) return errors
-                  errors[property] = validator.report(propertyValue)
-
-                  return errors
-                },
-                {}
-              )
+    return Object.entries(schema).reduce(reportPropertyWith(value), {})
   }
 
   return this
+}
+
+function testPropertyWith(value) {
+  return function testProperty(result, [property, validator]) {
+    if ( !value.hasOwnProperty(property) ) return result
+    return result && validator.test(value[property])
+  }
+}
+
+function reportPropertyWith(value) {
+  return function reportProperty(errors, [property, validator]) {
+    if ( !value.hasOwnProperty(property) ) return errors
+
+    const propertyValue = value[property]
+
+    if ( validator.test(propertyValue) ) return errors
+    errors[property] = validator.report(propertyValue)
+
+    return errors
+  }
 }
 
 export default Validator.make(shape)
