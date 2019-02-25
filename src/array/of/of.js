@@ -24,26 +24,37 @@ function of(type) {
 
   this.test = function test(value) {
     if ( !this.parent.test(value) ) return false
-    return value.every(element => type.test(element))
+    return value.every(testElementWith(type))
   }
 
-  this.report = function report(value) {
+  this.report = reportWith(type)
+
+  return this
+}
+
+function testElementWith(type) {
+  return function testElement(element) {
+    return type.test(element)
+  }
+}
+
+function reportWith(type) {
+  return function report(value) {
     if ( this.test(value) ) return false
 
     const parentReport = this.parent.report(value)
     if ( parentReport ) return parentReport
 
-    return value.reduce(
-      (errors, element, index) => {
-        if ( type.test(value) ) return errors
-        errors[index] = type.report(element)
-        return errors
-      },
-      {}
-    )
+    return value.reduce(reportElementWith(type), {})
   }
+}
 
-  return this
+function reportElementWith(type) {
+  return function reportElement(errors, element, index) {
+    if ( type.test(element) ) return errors
+    errors[index] = type.report(element)
+    return errors
+  }
 }
 
 export default Validator.make(of)
