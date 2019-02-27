@@ -1,5 +1,7 @@
 import { expect } from 'chai'
 
+import R from 'src'
+
 import testValidator from './validator.test'
 
 import testRequired from './required.test'
@@ -17,6 +19,22 @@ import testOneOf from './oneOf.test'
 import testHelpers from './helpers.test'
 
 describe('Regler', () => {
+
+  it('should have all native validators chained', () => {
+    expect(R.boolean).to.be.a('function')
+    expect(R.number).to.be.a('function')
+    expect(R.string).to.be.a('function')
+    expect(R.function).to.be.a('function')
+    expect(R.array).to.be.a('function')
+    expect(R.object).to.be.a('function')
+    expect(R.instanceOf).to.be.a('function')
+    expect(R.oneOf).to.be.a('function')
+  })
+
+  it('should work as a normal validator', () => {
+    expect(R.number().test(4)).to.be.true
+    expect(R.string().report(4)).to.equal('string')
+  })
 
   describe('Validator', testValidator)
 
