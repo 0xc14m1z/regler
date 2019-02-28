@@ -6,7 +6,14 @@
 [![Codacy][code-quality-badge]][code-quality-url]
 [![npm package][npm-badge]][npm]
 
-Type and value checker.
+Extensible type and value checker.
+
+**Table of contents**
+
+1. installation
+2. usage
+3. out of the box validators
+4. custom validators
 
 ## installation
 
@@ -16,24 +23,132 @@ npm install --save regler
 
 ## usage
 
+This package gives you two methods to check whether the input is of a certain
+type or pass a validation in general: `test` and `report`.
+
+### test
+
+This method returns `true` when the input satisfies the validator, `false`
+otherwise.
+
 ```js
 import R from 'regler'
 
-// WIP
-
+R.number().test(42)           // true
+R.number().test('string')     // false
 ```
 
+### report
 
+This method return different possible values, depending on user setting and
+the type of validator being used.
 
+The convention is that a validator must return `false` if it has nothing to
+report.
 
+```js
+import R from 'regler'
 
+R.number().report(42)
+// returns false, nothing to report on that input
 
+R.number().report('string')
+// returns the string 'number'. The default report is the name of the validator.
 
+R.number('must be a number').report('string')
+// returns 'must be a number'
+```
 
+Generally speaking, the last string parameter passed to the validator will be
+used as the feedback message when reporting.
 
+There are some validators that are chained to others, and the validation is
+tested from left to right, which each validator able to report an error:
 
+```js
+import R from 'regler'
 
+R.array().of(R.number()).report('string')
+// returns 'array', because is the left-most validations that fails
 
+R.array('should be a list').of(R.number()).report('string')
+// returns 'should be a list'
+// the custom feedback mechanism works the same
+
+R.array().of(R.number()).report(['element', 42, 'other'])
+// returns:
+// {
+//   0: 'number',
+//   2: 'number'
+// }
+//
+// the elements at indexes 0 and 2 have the
+// number validator default feedback message
+
+R.array().of(R.number('should be a number')).report(['element', 42, 'other'])
+// returns:
+// {
+//   0: 'should be a number',
+//   2: 'should be a number'
+// }
+//
+// the elements at indexes 0 and 2 have the provided feedback message
+
+R.object().shape({
+  name: R.string(),
+  age: R.number()
+}).report({
+  name: 'Luke Skywalker',
+  age: 'unknown'
+})
+// returns:
+// {
+//   age: 'number'
+// }
+//
+// properties that doesn't pass validations have the validator feedback message
+```
+
+### required/optional values
+
+All validators are implicitly required. It possible, though, to make them
+optional:
+
+```js
+import R from 'regler'
+
+R.number().test()
+// returns false, it is implicitly required
+
+R.number().optional().test()
+// returns true
+
+R.number().report()
+// returns 'required', the default feedback message for required validators
+
+R.number().required('must be present').report()
+// returns 'must be present'
+```
+
+## out of the box validators
+
+1. array
+  1. of
+2. boolean
+3. function
+4. instanceOf
+5. number
+6. object
+  1. shape
+7. oneOf
+8. string
+
+## custom validators
+
+It is possible to create new validators and add them to the main `R` object or
+chain them to other validators.
+
+*WIP*
 
 
 [build-badge]: https://img.shields.io/travis/0xc14m1z/regler.svg

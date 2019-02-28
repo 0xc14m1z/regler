@@ -35,6 +35,9 @@ describe('Regler', () => {
     expect(R.number().test(4)).to.be.true
     expect(R.string().report(4)).to.equal('string')
     expect(
+      R.number().required('must be present').report()
+    ).to.equal('must be present')
+    expect(
       R.array().of(R.number('should be a number'))
        .report(['element', 42, 'other'])
     ).to.deep.equal({
