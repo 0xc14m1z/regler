@@ -34,6 +34,24 @@ describe('Regler', () => {
   it('should work as a normal validator', () => {
     expect(R.number().test(4)).to.be.true
     expect(R.string().report(4)).to.equal('string')
+    expect(
+      R.array().of(R.number('should be a number'))
+       .report(['element', 42, 'other'])
+    ).to.deep.equal({
+      0: 'should be a number',
+      2: 'should be a number'
+    })
+    expect(
+      R.object().shape({
+        name: R.string(),
+        age: R.number()
+      }).report({
+        name: 'Luke Skywalker',
+        age: 'unknown'
+      })
+    ).to.deep.equal({
+      age: 'number'
+    })
   })
 
   describe('Validator', testValidator)
