@@ -63,7 +63,7 @@ Generally speaking, the last string parameter passed to the validator will be
 used as the feedback message when reporting.
 
 There are some validators that are chained to others, and the validation is
-tested from left to right, which each validator able to report an error:
+tested from left to right, with each validator able to report an error:
 
 ```js
 import R from 'regler'
@@ -133,13 +133,11 @@ R.number().required('must be present').report()
 ## out of the box validators
 
 1. array
-  1. of
 2. boolean
 3. function
 4. instanceOf
 5. number
 6. object
-  1. shape
 7. oneOf
 8. string
 
@@ -148,7 +146,20 @@ R.number().required('must be present').report()
 It is possible to create new validators and add them to the main `R` object or
 chain them to other validators.
 
-*WIP*
+A validator is a constructable function that receives an external context and
+adds to it at least the `test` method. The `report` method can also be added in
+order to customize the reporting is handled.
+
+### sample custom validator
+
+WIP
+
+### add first level validators
+
+A first level validator is a validator that is accessibile directly from the
+main `R` object, like `number`, `string` or `array`.
+
+WIP
 
 
 [build-badge]: https://img.shields.io/travis/0xc14m1z/regler.svg
