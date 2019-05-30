@@ -1,4 +1,4 @@
-import throwIf from 'src/helpers/throwIf'
+import throwIf from '../helpers/throwIf'
 
 import * as Errors from './errors'
 

@@ -1,6 +1,6 @@
-import Validator from 'src/validator'
+import Validator from '../validator'
 
-import throwIf from 'src/helpers/throwIf'
+import throwIf from '../helpers/throwIf'
 
 const NO_ACCEPTABLE_VALUES =
   'The acceptable values list must be provided'

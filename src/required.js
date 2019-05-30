@@ -1,4 +1,4 @@
-import make from 'src/validator/make'
+import make from './validator/make'
 
 function required() {
 

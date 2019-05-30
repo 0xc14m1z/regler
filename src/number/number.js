@@ -1,4 +1,4 @@
-import Validator from 'src/validator'
+import Validator from '../validator'
 
 function number() {
   this.test = function test(value) {

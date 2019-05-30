@@ -1,10 +1,10 @@
-import throwIf from 'src/helpers/throwIf'
+import throwIf from '../helpers/throwIf'
 import use from './use'
 import test from './test'
 import report from './report'
 import make from './make'
 
-import required from 'src/required'
+import required from '../required'
 import optional from '../optional'
 
 import * as Errors from './errors'

@@ -1,6 +1,6 @@
-import Validator from 'src/validator'
+import Validator from '../../validator'
 
-import throwIf from 'src/helpers/throwIf'
+import throwIf from '../../helpers/throwIf'
 
 const NO_SCHEMA =
   'The shape schema must be provided'
