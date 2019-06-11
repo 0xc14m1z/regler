@@ -1,1 +1,11 @@
-export { default } from './function'
+import Validator from '../validator'
+
+function fn() {
+  this.test = function test(value) {
+    return this.parent.test(value) && typeof value === 'function'
+  }
+
+  return this
+}
+
+export default Validator.make(fn)
