@@ -5,6 +5,7 @@
 [![CodeClimate][maintainability-badge]][maintainability-url]
 [![Codacy][code-quality-badge]][code-quality-url]
 [![npm package][npm-badge]][npm]
+![minzipped size][minzipped]
 
 Extensible type and value checker.
 
@@ -176,3 +177,5 @@ WIP
 
 [npm-badge]: https://badge.fury.io/js/regler.svg
 [npm]: https://badge.fury.io/js/regler
+
+[minzipped]: https://img.shields.io/bundlephobia/minzip/regler.svg?color=brightgreen
