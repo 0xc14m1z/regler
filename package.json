@@ -1,6 +1,6 @@
 {
   "name": "regler",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Extensible type and value checker.",
   "main": "lib/index.js",
   "module": "es/index.js",
