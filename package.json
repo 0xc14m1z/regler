@@ -20,7 +20,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "nwb": "0.23.x"
+    "nwb": "0.25.x"
   },
   "author": "0xc14m1z <0xc14m1z@gmail.com>",
   "bugs": {
